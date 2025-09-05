@@ -98,10 +98,10 @@ export default function RecipeDetail() {
   );
 }
 
-function RecipeRow({ item }: { item: Recipe }) {
+function RecipeRow({ item, style, ...rest }: { item: Recipe } & React.ComponentProps<typeof TouchableOpacity>) {
   const c = useThemeColors();
   return (
-    <TouchableOpacity activeOpacity={0.85} style={{ flexDirection: "row", gap: 12, alignItems: "center" }}>
+    <TouchableOpacity activeOpacity={0.85} {...rest} style={[{ flexDirection: "row", gap: 12, alignItems: "center" }, style]}>
       <View style={{ width: 120, height: 80, borderRadius: 12, overflow: "hidden", borderWidth: 1, borderColor: c.border }}>
         <Image source={{ uri: item.image }} style={{ width: "100%", height: "100%" }} contentFit="cover" />
       </View>
