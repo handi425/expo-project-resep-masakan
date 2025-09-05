@@ -43,7 +43,7 @@ export default function HomeScreen() {
       <FlatList
         data={data}
         keyExtractor={(it) => it.id}
-        contentContainerStyle={{ gap: 12, paddingTop: 12, paddingHorizontal: 16, paddingBottom: Math.max(0, insets.bottom) }}
+        contentContainerStyle={{ gap: 12, paddingTop: 12, paddingHorizontal: 16, paddingBottom: 0 }}
         ListHeaderComponent={header}
         ListHeaderComponentStyle={{ paddingHorizontal: 0 }}
         renderItem={({ item }) => (

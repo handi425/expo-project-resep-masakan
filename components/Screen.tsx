@@ -6,7 +6,7 @@ import { useThemeColors } from "../lib/theme";
 export default function Screen({ children, padded = true }: { children: React.ReactNode; padded?: boolean }) {
   const c = useThemeColors();
   return (
-    <SafeAreaView style={[styles.safe, { backgroundColor: c.background }]}> 
+    <SafeAreaView style={[styles.safe, { backgroundColor: c.background }]} edges={["top"]}> 
       <StatusBar barStyle="light-content" />
       <View style={[styles.body, padded && styles.padded]}>{children}</View>
     </SafeAreaView>

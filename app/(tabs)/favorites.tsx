@@ -22,7 +22,7 @@ export default function FavoritesScreen() {
       <FlatList
         data={data}
         keyExtractor={(it) => it.id}
-        contentContainerStyle={{ gap: 12, paddingTop: 12, paddingHorizontal: 16, paddingBottom: Math.max(0, insets.bottom) }}
+        contentContainerStyle={{ gap: 12, paddingTop: 12, paddingHorizontal: 16, paddingBottom: 0 }}
         renderItem={({ item }) => (
           <Link href={{ pathname: "/recipe/[id]", params: { id: item.id } }} asChild>
             <RecipeCard item={item} />
