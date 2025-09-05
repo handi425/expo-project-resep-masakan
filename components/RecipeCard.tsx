@@ -17,10 +17,12 @@ function Card({ item, onPress }: Props) {
   const { isFavorite, toggle } = useFavorites();
   const fav = isFavorite(item.id);
 
+  const src = typeof item.image === "string" ? { uri: item.image } : item.image;
+
   return (
     <TouchableOpacity onPress={onPress} activeOpacity={0.9} style={[styles.wrap, { backgroundColor: c.card, borderColor: c.border }]}> 
       <View style={styles.imgWrap}>
-        <Image source={{ uri: item.image }} style={styles.img} contentFit="cover" transition={200} />
+        <Image source={src} style={styles.img} contentFit="cover" transition={200} />
         <View style={styles.overlay} />
         <View style={styles.topRow}>
           <View style={[styles.badge, { backgroundColor: "rgba(0,0,0,0.45)", borderColor: "rgba(255,255,255,0.08)" }]}>
@@ -88,4 +90,3 @@ const styles = StyleSheet.create({
   title: { color: "#fff", fontSize: 18, fontWeight: "800" },
   meta: { color: "#E6E6E6", marginTop: 2, fontSize: 12 },
 });
-

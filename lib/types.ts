@@ -14,11 +14,13 @@ export type Recipe = {
   id: string;
   title: string;
   category: Category;
-  image: string;
+  image: string | number; // URL string or local require(resource)
   duration: number; // minutes
   difficulty: "Mudah" | "Sedang" | "Sulit";
   servings: number;
   calories?: number;
+  author?: string;
+  rating?: number; // 0-5
   ingredients: string[];
   steps: string[];
   tags?: string[];

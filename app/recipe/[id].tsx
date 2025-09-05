@@ -33,7 +33,7 @@ export default function RecipeDetail() {
       <Stack.Screen options={{ headerShown: false }} />
       <ScrollView contentContainerStyle={{ paddingBottom: 24 + insets.bottom }}>
         <View style={{ height: 260, position: "relative" }}>
-          <Image source={{ uri: item.image }} style={{ width: "100%", height: "100%" }} contentFit="cover" />
+          <Image source={typeof item.image === "string" ? { uri: item.image } : item.image} style={{ width: "100%", height: "100%" }} contentFit="cover" />
           <View style={styles.overlay} />
           <View style={[styles.topBar, { top: 8 + insets.top }]}>
             <TouchableOpacity onPress={() => router.back()} style={[styles.circle, { backgroundColor: "rgba(0,0,0,0.45)", borderColor: "rgba(255,255,255,0.08)" }]}>
@@ -103,7 +103,7 @@ function RecipeRow({ item, style, ...rest }: { item: Recipe } & React.ComponentP
   return (
     <TouchableOpacity activeOpacity={0.85} {...rest} style={[{ flexDirection: "row", gap: 12, alignItems: "center" }, style]}>
       <View style={{ width: 120, height: 80, borderRadius: 12, overflow: "hidden", borderWidth: 1, borderColor: c.border }}>
-        <Image source={{ uri: item.image }} style={{ width: "100%", height: "100%" }} contentFit="cover" />
+        <Image source={typeof item.image === "string" ? { uri: item.image } : item.image} style={{ width: "100%", height: "100%" }} contentFit="cover" />
       </View>
       <View style={{ flex: 1 }}>
         <Text style={{ color: c.text, fontWeight: "800" }} numberOfLines={1}>{item.title}</Text>

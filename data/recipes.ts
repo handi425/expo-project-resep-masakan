@@ -6,7 +6,7 @@ export const recipes: Recipe[] = [
     id: "ayam-goreng-kremes",
     title: "Ayam Goreng Kremes",
     category: "Ayam",
-    image: "https://picsum.photos/seed/ayam-goreng-kremes/800/600",
+    image: require("../assets/images/recipes/ayam-goreng-kremes.jpg"),
     duration: 60,
     difficulty: "Sedang",
     servings: 4,
@@ -32,7 +32,7 @@ export const recipes: Recipe[] = [
     id: "ayam-bakar-taliwang",
     title: "Ayam Bakar Taliwang",
     category: "Ayam",
-    image: "https://picsum.photos/seed/ayam-bakar-taliwang/800/600",
+    image: require("../assets/images/recipes/ayam-bakar-taliwang.jpg"),
     duration: 70,
     difficulty: "Sedang",
     servings: 4,
@@ -55,7 +55,7 @@ export const recipes: Recipe[] = [
     id: "opor-ayam",
     title: "Opor Ayam",
     category: "Ayam",
-    image: "https://picsum.photos/seed/opor-ayam/800/600",
+    image: require("../assets/images/recipes/opor-ayam.jpg"),
     duration: 55,
     difficulty: "Mudah",
     servings: 5,
@@ -77,7 +77,7 @@ export const recipes: Recipe[] = [
     id: "rendang",
     title: "Rendang Daging",
     category: "Daging",
-    image: "https://picsum.photos/seed/rendang-daging/800/600",
+    image: require("../assets/images/recipes/rendang.jpg"),
     duration: 180,
     difficulty: "Sulit",
     servings: 6,
@@ -99,7 +99,7 @@ export const recipes: Recipe[] = [
     id: "sate-padang",
     title: "Sate Padang",
     category: "Daging",
-    image: "https://picsum.photos/seed/sate-padang/800/600",
+    image: require("../assets/images/recipes/sate-padang.jpg"),
     duration: 90,
     difficulty: "Sedang",
     servings: 5,
@@ -815,4 +815,3 @@ export const recipes: Recipe[] = [
 ];
 
 export default recipes;
-
