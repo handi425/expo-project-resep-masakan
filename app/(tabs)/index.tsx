@@ -6,11 +6,12 @@ import CategoryChips from "../../components/CategoryChips";
 import RecipeCard from "../../components/RecipeCard";
 import EmptyState from "../../components/EmptyState";
 import { useThemeColors } from "../../lib/theme";
-import type { Category, Recipe } from "../../lib/types";
-import { useRecipes } from "../../hooks/useRecipes";
+import type { Category } from "../../lib/types";
+import { useRecipes, getOnePerCategory } from "../../hooks/useRecipes";
 import { Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import HeroCarousel from "../../components/HeroCarousel";
 
 export default function HomeScreen() {
   const c = useThemeColors();
@@ -18,6 +19,8 @@ export default function HomeScreen() {
   const [cat, setCat] = useState<Category | "Semua">("Semua");
   const data = useRecipes(query, cat);
   const insets = useSafeAreaInsets();
+
+  const featured = useMemo(() => getOnePerCategory(), []);
 
   const header = useMemo(() => (
     <View style={{ gap: 14 }}>
@@ -34,9 +37,10 @@ export default function HomeScreen() {
       </View>
       <SearchBar value={query} onChange={setQuery} />
       <CategoryChips active={cat} onChange={setCat} />
+      <HeroCarousel items={featured} />
       <Text style={[styles.sectionTitle, { color: c.subtext }]}>Rekomendasi</Text>
     </View>
-  ), [query, cat, c]);
+  ), [query, cat, c, featured]);
 
   return (
     <Screen padded={false}>

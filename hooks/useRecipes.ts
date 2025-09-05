@@ -42,3 +42,15 @@ export function getRelatedRecipes(id: string, limit = 6): Recipe[] {
     .map((x) => x.r);
   return scored;
 }
+
+export function getOnePerCategory(): Recipe[] {
+  const seen = new Set<Category>();
+  const out: Recipe[] = [];
+  for (const r of allRecipes) {
+    if (!seen.has(r.category)) {
+      seen.add(r.category);
+      out.push(r);
+    }
+  }
+  return out;
+}
