@@ -19,8 +19,6 @@ export type Recipe = {
   difficulty: "Mudah" | "Sedang" | "Sulit";
   servings: number;
   calories?: number;
-  author?: string;
-  rating?: number; // 0-5
   ingredients: string[];
   steps: string[];
   tags?: string[];
