@@ -10,12 +10,14 @@ import type { Category, Recipe } from "../../lib/types";
 import { useRecipes } from "../../hooks/useRecipes";
 import { Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
   const c = useThemeColors();
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<Category | "Semua">("Semua");
   const data = useRecipes(query, cat);
+  const insets = useSafeAreaInsets();
 
   const header = useMemo(() => (
     <View style={{ gap: 14 }}>
@@ -37,12 +39,13 @@ export default function HomeScreen() {
   ), [query, cat, c]);
 
   return (
-    <Screen>
+    <Screen padded={false}>
       <FlatList
         data={data}
         keyExtractor={(it) => it.id}
-        contentContainerStyle={{ gap: 12, paddingBottom: 24 }}
+        contentContainerStyle={{ gap: 12, paddingTop: 12, paddingHorizontal: 16, paddingBottom: Math.max(0, insets.bottom) }}
         ListHeaderComponent={header}
+        ListHeaderComponentStyle={{ paddingHorizontal: 0 }}
         renderItem={({ item }) => (
           <Link href={{ pathname: "/recipe/[id]", params: { id: item.id } }} asChild>
             <RecipeCard item={item} />
